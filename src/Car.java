@@ -2,53 +2,53 @@ public class Car
 {
     //переменные
     private String brand;
-    private int year_of_issue;
-    private double engine_capacity;
+    private int yearOfIssue;
+    private double engineCapacity;
 
     //конструкторы
     public Car() {}
-    public Car(String brand, int year_of_issue, double engine_capacity)
+    public Car(String brand, int yearOfIssue, double engineCapacity)
     {
         this.brand = brand;
-        this.year_of_issue = year_of_issue;
-        this.engine_capacity = engine_capacity;
+        this.yearOfIssue = yearOfIssue;
+        this.engineCapacity = engineCapacity;
     }
 
     //гетеры и сетеры
-    private String GetBrand()
+    public String getBrand()
     {
         return brand;
     }
-    private int GetYearOfIssue ()
+    public int getYearOfIssue ()
     {
-        return year_of_issue;
+        return yearOfIssue;
     }
-    private double GetEngineCapacity()
+    public double getEngineCapacity()
     {
-        return engine_capacity;
+        return engineCapacity;
     }
-    private void SetBrand (String brand)
+    public void setBrand (String brand)
     {
         this.brand = brand;
     }
-    private void SetYearOfIssue(int year_of_issue)
+    public void setYearOfIssue(int yearOfIssue)
     {
-        this.year_of_issue = year_of_issue;
+        this.yearOfIssue = yearOfIssue;
     }
-    private void SetEngineCapacity(double engine_capacity)
+    public void setEngineCapacity(double engineCapacity)
     {
-        this.engine_capacity = engine_capacity;
+        this.engineCapacity = engineCapacity;
     }
 
     //методы
-    public void NewCar(String _brand, int _year_of_issue, double _engine_capacity)
+    public void newCar(String brand, int yearOfIssue, double engineCapacity)
     {
-        SetBrand(_brand);
-        SetYearOfIssue(_year_of_issue);
-        SetEngineCapacity(_engine_capacity);
+        setBrand(brand);
+        setYearOfIssue(yearOfIssue);
+        setEngineCapacity(engineCapacity);
     }
-    public void PrintCar()
+    public void printCar()
     {
-        System.out.printf("Марка авто: %s Год производства: %d Объём двигателя: %.1f\n\n", brand, year_of_issue, engine_capacity);
+        System.out.printf("Марка авто: %s Год производства: %d Объём двигателя: %.1f\n\n", brand, yearOfIssue, engineCapacity);
     }
 }

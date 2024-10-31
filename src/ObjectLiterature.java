@@ -9,33 +9,33 @@ public class ObjectLiterature
     ObjectLiterature(Literature[] stack)
     {
         this.stack = stack;
-        CapacityOfStack();
+        capacityOfStack();
     }
 
     //гетеры и сетеры
-    private Literature GetLiteratureObject(int number)
+    public Literature getLiteratureObject(int number)
     {
         return stack[number];
     }
-    private Literature[] GetStack()
+    public Literature[] getStack()
     {
         return stack;
     }
-    private void SetLiteratureObject(Literature object, int index)
+    public void setLiteratureObject(Literature object, int index)
     {
         stack[index] = object;
     }
-    private void SetStack (Literature[] stack)
+    public void setStack (Literature[] stack)
     {
         this.stack = stack;
     }
 
     //методы
-    private void CapacityOfStack()
+    private void capacityOfStack()
     {
         capacity = stack.length;
     }
-    public void AddLiterature(Literature object)
+    public void addLiterature(Literature object)
     {
         Literature[]stack = new Literature[capacity + 1];
         for (int i = 0; i < capacity; i++)
@@ -43,10 +43,10 @@ public class ObjectLiterature
             stack[i] = this.stack[i];
         }
         stack[capacity] = object;
-        SetStack(stack);
+        setStack(stack);
         capacity++;
     }
-    public void DeleteFromLiterature(int index)
+    public void deleteFromLiterature(int index)
     {
         Literature[]stack = new Literature[capacity - 1];
         for (int i = 0, j = 0; i < capacity; i++)
@@ -57,29 +57,29 @@ public class ObjectLiterature
                 j++;
             }
         }
-        SetStack(stack);
+        setStack(stack);
         capacity--;
     }
-    public void SortLiterature()
+    public void sortLiterature()
     {
         int j;
         for (int i = 1; i < stack.length; i++) {
-            int swap = stack[i].GetYearOfPublication();
+            int swap = stack[i].getYearOfPublication();
             Literature swap2 = stack[i];
-            for (j = i; j > 0 && swap < stack[j - 1].GetYearOfPublication(); j--) {
+            for (j = i; j > 0 && swap < stack[j - 1].getYearOfPublication(); j--) {
                 stack[j] = stack[j - 1];
             }
             stack[j] = swap2;
         }
     }
-    public void Print()
+    public void print()
     {
         for(int i = 0; i < capacity; i++)
-            stack[i].Print();
+            stack[i].print();
     }
-    public void PrintYear()
+    public void printYear()
     {
         for(int i = 0; i < capacity; i++)
-            stack[i].PrintYear();
+            stack[i].printYear();
     }
 }

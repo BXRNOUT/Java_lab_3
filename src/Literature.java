@@ -2,109 +2,109 @@ import static java.lang.Math.random;
 public class Literature
 {
     //переменные
-    private int unique_code = (int)(random() * 100);
-    private int source_code_of_literature;
-    private int year_of_publication;
-    private int number_of_pages = 0;
-    private String type_of_literature;
+    private int uniqueCode = (int)(random() * 100);
+    private int sourceCodeOfLiterature;
+    private int yearOfPublication;
+    private int numberOfPages = 0;
+    private String typeOfLiterature;
     private String name;
-    private String name_of_publisher;
+    private String nameOfPublisher;
     private String author = "";
 
     //конструкторы
     public Literature(){}
-    public Literature(int source_code_of_literature, int year_of_publication, String type_of_literature, String name, String name_of_publisher)
+    public Literature(int sourceCodeOfLiterature, int yearOfPublication, String typeOfLiterature, String name, String nameOfPublisher)
     {
-     this.source_code_of_literature = source_code_of_literature;
-     this.year_of_publication = year_of_publication;
-     this.type_of_literature = type_of_literature;
+     this.sourceCodeOfLiterature = sourceCodeOfLiterature;
+     this.yearOfPublication = yearOfPublication;
+     this.typeOfLiterature = typeOfLiterature;
      this.name = name;
-     this.name_of_publisher = name_of_publisher;
+     this.nameOfPublisher = nameOfPublisher;
     }
 
     //гетеры и сеттеры
-    private int GetSourceCodeOfLiterature()
+    public int getSourceCodeOfLiterature()
     {
-        return source_code_of_literature;
+        return sourceCodeOfLiterature;
     }
-    public int GetYearOfPublication()
+    public int getYearOfPublication()
     {
-        return year_of_publication;
+        return yearOfPublication;
     }
-    private int GetNumberOfPages()
+    public int getNumberOfPages()
     {
-        return number_of_pages;
+        return numberOfPages;
     }
-    private String GetTypeOfLiterature()
+    public String getTypeOfLiterature()
     {
-        return type_of_literature;
+        return typeOfLiterature;
     }
-    private String GetName()
+    public String getName()
     {
         return name;
     }
-    private String GetNameOfPublisher()
+    public String getNameOfPublisher()
     {
-        return name_of_publisher;
+        return nameOfPublisher;
     }
-    private String GetAuthor()
+    public String getAuthor()
     {
         return author;
     }
 
-    private void SetSourceCodeOfLiterature(int source_code_of_literature)
+    public void setSourceCodeOfLiterature(int sourceCodeOfLiterature)
     {
-        this.source_code_of_literature = source_code_of_literature;
+        this.sourceCodeOfLiterature = sourceCodeOfLiterature;
     }
-    private void SetYearOfPublication(int year_of_publication)
+    public void setYearOfPublication(int yearOfPublication)
     {
-        this.year_of_publication = year_of_publication;
+        this.yearOfPublication = yearOfPublication;
     }
-    private void SetTypeOfLiterature(String type_of_literature)
+    public void setTypeOfLiterature(String typeOfLiterature)
     {
-        this.type_of_literature = type_of_literature;
+        this.typeOfLiterature = typeOfLiterature;
     }
-    private void SetName(String name)
+    public void setName(String name)
     {
         this.name = name;
     }
-    private void SetNameOfPublisher(String name_of_publisher)
+    public void setNameOfPublisher(String nameOfPublisher)
     {
-        this.name_of_publisher = name_of_publisher;
+        this.nameOfPublisher = nameOfPublisher;
     }
 
-    public void SetAuthor(String author)
+    public void setAuthor(String author)
     {
         this.author = author;
     }
-    public void SetNumberOfPages(int number_of_pages)
+    public void setNumberOfPages(int numberOfPages)
     {
-        this.number_of_pages = number_of_pages;
+        this.numberOfPages = numberOfPages;
     }
 
     //методы
-    public void AddLiterature(int source_code_of_literature, int year_of_publication, String type_of_literature, String name, String name_of_publisher)
+    public void addLiterature(int sourceCodeOfLiterature, int yearOfPublication, String typeOfLiterature, String name, String nameOfPublisher)
     {
-        this.source_code_of_literature = source_code_of_literature;
-        this.year_of_publication = year_of_publication;
-        this.type_of_literature = type_of_literature;
+        this.sourceCodeOfLiterature = sourceCodeOfLiterature;
+        this.yearOfPublication = yearOfPublication;
+        this.typeOfLiterature = typeOfLiterature;
         this.name = name;
-        this.name_of_publisher = name_of_publisher;
+        this.nameOfPublisher = nameOfPublisher;
     }
-    public void Print()
+    public void print()
     {
-        if(source_code_of_literature != 0) {
-            System.out.printf("Код источника литературы: %d\nТип литературы: %s\nНазвание: %s\nГод издательства: %d\nНазвание издательства: %s\n", source_code_of_literature, type_of_literature, name, year_of_publication, name_of_publisher);
-            if (number_of_pages != 0)
-                System.out.printf("Количество страниц: %d\n", number_of_pages);
+        if(sourceCodeOfLiterature != 0) {
+            System.out.printf("Код источника литературы: %d\nТип литературы: %s\nНазвание: %s\nГод издательства: %d\nНазвание издательства: %s\n", sourceCodeOfLiterature, typeOfLiterature, name, yearOfPublication, nameOfPublisher);
+            if (numberOfPages != 0)
+                System.out.printf("Количество страниц: %d\n", numberOfPages);
             if (author != "")
                 System.out.printf("Автор: %s\n", author);
         }
         System.out.println();
     }
-    public void PrintYear()
+    public void printYear()
     {
-        System.out.println(year_of_publication);
+        System.out.println(yearOfPublication);
     }
 
 }
