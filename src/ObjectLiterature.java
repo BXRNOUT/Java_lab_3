@@ -1,85 +1,120 @@
+import static java.lang.Math.random;
 public class ObjectLiterature
 {
     //переменные
-    private Literature[] stack;
-    private int capacity;
+    private static int ID = 1;
+    private int id;
+    private int sourceCodeOfLiterature;
+    private int yearOfPublication;
+    private int numberOfPages = 0;
+    private String typeOfLiterature;
+    private String name;
+    private String nameOfPublisher;
+    private String author = "";
 
     //конструкторы
-    ObjectLiterature(){};
-    ObjectLiterature(Literature[] stack)
+    public ObjectLiterature(){this.id = ID++;}
+    public ObjectLiterature(int sourceCodeOfLiterature, int yearOfPublication, String typeOfLiterature, String name, String nameOfPublisher)
     {
-        this.stack = stack;
-        capacityOfStack();
+        this.sourceCodeOfLiterature = sourceCodeOfLiterature;
+        this.yearOfPublication = yearOfPublication;
+        this.typeOfLiterature = typeOfLiterature;
+        this.name = name;
+        this.nameOfPublisher = nameOfPublisher;
+        this.id = ID++;
     }
 
-    //гетеры и сетеры
-    public Literature getLiteratureObject(int number)
+    //гетеры и сеттеры
+    public int getSourceCodeOfLiterature()
     {
-        return stack[number];
+        return sourceCodeOfLiterature;
     }
-    public Literature[] getStack()
+    public int getYearOfPublication()
     {
-        return stack;
+        return yearOfPublication;
     }
-    public void setLiteratureObject(Literature object, int index)
+    public int getNumberOfPages()
     {
-        stack[index] = object;
+        return numberOfPages;
     }
-    public void setStack (Literature[] stack)
+    public String getTypeOfLiterature()
     {
-        this.stack = stack;
+        return typeOfLiterature;
+    }
+    public String getName()
+    {
+        return name;
+    }
+    public String getNameOfPublisher()
+    {
+        return nameOfPublisher;
+    }
+    public String getAuthor()
+    {
+        return author;
+    }
+
+    public void setSourceCodeOfLiterature(int sourceCodeOfLiterature)
+    {
+        String str = "" + sourceCodeOfLiterature;
+        if (str.length() <= 7)
+            this.sourceCodeOfLiterature = sourceCodeOfLiterature;
+        else
+            System.err.println("Код литературы не может быть больше 7 знаков!");
+    }
+    public void setYearOfPublication(int yearOfPublication)
+    {
+        if(yearOfPublication <= 2024 && yearOfPublication > 0)
+            this.yearOfPublication = yearOfPublication;
+        else
+            System.err.println("Вы живёте не в нашем мире!");
+    }
+    public void setTypeOfLiterature(String typeOfLiterature)
+    {
+        this.typeOfLiterature = typeOfLiterature;
+    }
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+    public void setNameOfPublisher(String nameOfPublisher)
+    {
+        this.nameOfPublisher = nameOfPublisher;
+    }
+    public void setAuthor(String author)
+    {
+        this.author = author;
+    }
+    public void setNumberOfPages(int numberOfPages)
+    {
+        if (numberOfPages <= 4959 && numberOfPages > 0)
+            this.numberOfPages = numberOfPages;
+        else
+            System.err.println("Слишком много страниц в книге!");
     }
 
     //методы
-    private void capacityOfStack()
+    public void addLiterature(int sourceCodeOfLiterature, int yearOfPublication, String typeOfLiterature, String name, String nameOfPublisher)
     {
-        capacity = stack.length;
+        setSourceCodeOfLiterature(sourceCodeOfLiterature);
+        setYearOfPublication(yearOfPublication);
+        setTypeOfLiterature(typeOfLiterature);
+        setName(name);
+        setNameOfPublisher(nameOfPublisher);
     }
-    public void addLiterature(Literature object)
+    @Override
+    public String toString()
     {
-        Literature[]stack = new Literature[capacity + 1];
-        for (int i = 0; i < capacity; i++)
-        {
-            stack[i] = this.stack[i];
-        }
-        stack[capacity] = object;
-        setStack(stack);
-        capacity++;
-    }
-    public void deleteFromLiterature(int index)
-    {
-        Literature[]stack = new Literature[capacity - 1];
-        for (int i = 0, j = 0; i < capacity; i++)
-        {
-            if(i != index)
-            {
-                stack[j] = this.stack[i];
-                j++;
-            }
-        }
-        setStack(stack);
-        capacity--;
-    }
-    public void sortLiterature()
-    {
-        int j;
-        for (int i = 1; i < stack.length; i++) {
-            int swap = stack[i].getYearOfPublication();
-            Literature swap2 = stack[i];
-            for (j = i; j > 0 && swap < stack[j - 1].getYearOfPublication(); j--) {
-                stack[j] = stack[j - 1];
-            }
-            stack[j] = swap2;
-        }
-    }
-    public void print()
-    {
-        for(int i = 0; i < capacity; i++)
-            stack[i].print();
-    }
-    public void printYear()
-    {
-        for(int i = 0; i < capacity; i++)
-            stack[i].printYear();
+        String str = "Название: " + name +
+                "\nКод источника литературы: " + sourceCodeOfLiterature +
+                "\nГод издательства: " + yearOfPublication +
+                "\nТип литературы: " + typeOfLiterature +
+                "\nНазвание издательства: " + nameOfPublisher;;
+        if (numberOfPages != 0)
+            str += "\nКоличество страниц: " + numberOfPages;
+        if (author != "")
+            str +="\nАвтор: " + author;
+        str += "\n\n";
+        return str;
     }
 }
